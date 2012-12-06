@@ -1,0 +1,58 @@
+<html>
+<!-- (c) Daniel Haehn 2012, MIT licensed -->
+<head>
+<title>STACKDROP.org</title>
+<link rel="stylesheet" type="text/css" href="css/style.css">
+<script type="text/javascript" src="js/parse.js"></script>
+<script type="text/javascript" src="js/util.js"></script>
+<script type="text/javascript" src="js/dragndrop.js"></script>
+<!-- XTK rendering library + ui -->
+<script type="text/javascript"
+	src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
+<script type="text/javascript"
+	src="../../X/lib/closure-library/closure/goog/base.js"></script>
+<script type="text/javascript" src="../../X/xtk-deps.js"></script>
+
+<script type="text/javascript">
+  window.onload = function() {
+
+    // initialize the dragndrop
+    initialize_dragndrop();
+    
+  }
+
+  goog.require('X.renderer3D');
+  goog.require('X.stack');
+</script>
+
+</head>
+
+
+<body>
+	<!-- Loading indicator -->
+	<div id='loading'
+		style='display: none; position: absolute; left: 50%; top: 50%;'>
+		<img src='gfx/loading12.gif'>
+	</div>
+	<!-- The dropzone -->
+	<div id='dropzone' style=''>
+		Drop file here or <input id="filebutton" type="file"
+			style="display: none;" onchange='main(this.files)'><a
+			href="#" class="bigbutton"
+			onclick='javascript:document.getElementById("filebutton").click();'>Select
+			File</a>
+	</div>
+	<!-- Logo -->
+	<div id='logo'>
+		<img src='logo.png'>
+	</div>
+	<!-- Instructions -->
+	<div id='instructions' style='display: none;'>
+		<img src='gfx/keyboard_key_z.png' style='vertical-align: middle'><span
+			style='margin-left: 4px;'>Previous slice</span><br> <span><img
+			src='gfx/keyboard_key_x.png' style='vertical-align: middle'><span
+			style='margin-left: 4px;'>Next slice</span>
+	</div>
+
+</body>
+</html>
