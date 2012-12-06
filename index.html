@@ -10,8 +10,8 @@
 <script type="text/javascript"
 	src="http://get.goXTK.com/xtk_xdat.gui.js"></script>
 <script type="text/javascript"
-	src="../../X/lib/closure-library/closure/goog/base.js"></script>
-<script type="text/javascript" src="../../X/xtk-deps.js"></script>
+	src="../X/lib/closure-library/closure/goog/base.js"></script>
+<script type="text/javascript" src="../X/xtk-deps.js"></script>
 
 <script type="text/javascript">
   window.onload = function() {
@@ -32,7 +32,7 @@
 	<!-- Loading indicator -->
 	<div id='loading'
 		style='display: none; position: absolute; left: 50%; top: 50%;'>
-		<img src='gfx/loading12.gif'>
+		<img src='gfx/loading.gif'>
 	</div>
 	<!-- The dropzone -->
 	<div id='dropzone' style=''>
@@ -44,14 +44,20 @@
 	</div>
 	<!-- Logo -->
 	<div id='logo'>
-		<img src='logo.png'>
+		<a href="http://stackdrop.org"><img src='gfx/logo.png'></a>
 	</div>
 	<!-- Instructions -->
 	<div id='instructions' style='display: none;'>
 		<img src='gfx/keyboard_key_z.png' style='vertical-align: middle'><span
 			style='margin-left: 4px;'>Previous slice</span><br> <span><img
 			src='gfx/keyboard_key_x.png' style='vertical-align: middle'><span
-			style='margin-left: 4px;'>Next slice</span>
+			style='margin-left: 4px;'>Next slice</span><br>
+	</div>
+	<!-- Credits -->
+	<div id='credits'>
+		<a href="https://github.com/haehn/stackdrop" target=_blank>Source
+			code</a><br>
+		<a href="mailto:haehn@ieee.org" target=_blank>Comments ?</a>	
 	</div>
 
 </body>

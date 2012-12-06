@@ -9,7 +9,13 @@ _VIEW_ = {
   cache_size: 20,
   old_cache_size: 20,
   '3d_opacity': 10,
-  queue: null
+  queue: null,
+  lowerThreshold_r: 0,
+  upperThreshold_r: 255,
+  lowerThreshold_g: 0,
+  upperThreshold_g: 255,
+  lowerThreshold_b: 0,
+  upperThreshold_b: 255,
 };
 
 
@@ -476,14 +482,14 @@ function addUI() {
   var _cacheController = gui.add(_VIEW_, 'cache_size', 1, Math
       .floor((stack.dimensions[2] - 1) / 2), 1);
   gui.addFolder('Red');
-  var _rLowerThreshold = gui.add(stack, '_rLowerThreshold', 0, 1);
-  var _rUpperThreshold = gui.add(stack, '_rUpperThreshold', 0, 1);
+  var rLowerThreshold = gui.add(_VIEW_, 'lowerThreshold_r', 0, 255);
+  var rUpperThreshold = gui.add(_VIEW_, 'upperThreshold_r', 0, 255);
   gui.addFolder('Green');
-  var _gLowerThreshold = gui.add(stack, '_gLowerThreshold', 0, 1);
-  var _gUpperThreshold = gui.add(stack, '_gUpperThreshold', 0, 1);
+  var gLowerThreshold = gui.add(_VIEW_, 'lowerThreshold_g', 0, 255);
+  var gUpperThreshold = gui.add(_VIEW_, 'upperThreshold_g', 0, 255);
   gui.addFolder('Blue');
-  var _bLowerThreshold = gui.add(stack, '_bLowerThreshold', 0, 1);
-  var _bUpperThreshold = gui.add(stack, '_bUpperThreshold', 0, 1);
+  var bLowerThreshold = gui.add(_VIEW_, 'lowerThreshold_b', 0, 255);
+  var bUpperThreshold = gui.add(_VIEW_, 'upperThreshold_b', 0, 255);
   
   _sliceController.onFinishChange(function(v) {
 
@@ -524,4 +530,45 @@ function addUI() {
     
   });
   
+  rLowerThreshold.onChange(function(v) {
+
+    v = Math.round(v);
+    stack._rLowerThreshold = v / 255;
+    
+  });
+  rUpperThreshold.onChange(function(v) {
+
+    v = Math.round(v);
+    stack._rUpperThreshold = v / 255;
+    
+  });
+  
+  gLowerThreshold.onChange(function(v) {
+
+    v = Math.round(v);
+    stack._gLowerThreshold = v / 255;
+    
+  });
+  gUpperThreshold.onChange(function(v) {
+
+    v = Math.round(v);
+    stack._gUpperThreshold = v / 255;
+    
+  });
+  
+
+  bLowerThreshold.onChange(function(v) {
+
+    v = Math.round(v);
+    stack._bLowerThreshold = v / 255;
+    
+  });
+  bUpperThreshold.onChange(function(v) {
+
+    v = Math.round(v);
+    stack._bUpperThreshold = v / 255;
+    
+  });
+  
+
 }

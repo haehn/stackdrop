@@ -4,6 +4,16 @@ html,body {
 	padding: 0;
 	height: 100%;
 	overflow: hidden !important;
+	font-family: arial;
+}
+
+a {
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	text-decoration: underline;
 }
 
 #dropzone {
@@ -71,4 +81,14 @@ html,body {
 	position: absolute;
 	left: 0px;
 	top: 0px;
+}
+
+#credits {
+	position: absolute;
+	right: 0px;
+	bottom: 0px;
+	color: white;
+	padding: 10px;
+	font-size: 0.7em;
+	line-height: 20px;
 }
