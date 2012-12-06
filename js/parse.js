@@ -263,12 +263,10 @@ function parse(slicer, bytes) {
       ren3d.add(box);
       
       stack = new X.stack();
-      stack._dimensions = [1, 1, _TIFF_.ifd.length];
+      stack.dimensions = [1, 1, _TIFF_.ifd.length];
       stack.borders = false;
-      stack.lowerThreshold = 0;
       stack.opacity = 0.1;
-      stack.upperThreshold = 100;
-      stack.create_();
+      stack.create();
       
       // grab data of image 0
       _VIEW_.mode = 'ready';
@@ -288,11 +286,11 @@ function parse(slicer, bytes) {
     var _data = scanner.scan('uchar', bytes.byteLength);
     
     var s = new X.slice();
-    s.texture._rawDataWidth = _VIEW_.current_ifd['IMAGE_WIDTH'];
-    s.texture._rawDataHeight = _VIEW_.current_ifd['IMAGE_LENGTH'];
-    s.texture._rawData = _data;
+    s.texture.rawDataWidth = _VIEW_.current_ifd['IMAGE_WIDTH'];
+    s.texture.rawDataHeight = _VIEW_.current_ifd['IMAGE_LENGTH'];
+    s.texture.rawData = _data;
     s.visible = false;
-    s._stack = stack;
+    s.stack = stack;
     s.setup([0, 0, _CURRENT_SLICE - _TIFF_.ifd.length / 2], [0, 0, 1],
         [0, 1, 0], _VIEW_.current_ifd['IMAGE_WIDTH'],
         _VIEW_.current_ifd['IMAGE_LENGTH'], false);
@@ -533,26 +531,26 @@ function addUI() {
   rLowerThreshold.onChange(function(v) {
 
     v = Math.round(v);
-    stack._rLowerThreshold = v / 255;
+    stack.rLowerThreshold = v / 255;
     
   });
   rUpperThreshold.onChange(function(v) {
 
     v = Math.round(v);
-    stack._rUpperThreshold = v / 255;
+    stack.rUpperThreshold = v / 255;
     
   });
   
   gLowerThreshold.onChange(function(v) {
 
     v = Math.round(v);
-    stack._gLowerThreshold = v / 255;
+    stack.gLowerThreshold = v / 255;
     
   });
   gUpperThreshold.onChange(function(v) {
 
     v = Math.round(v);
-    stack._gUpperThreshold = v / 255;
+    stack.gUpperThreshold = v / 255;
     
   });
   
@@ -560,13 +558,13 @@ function addUI() {
   bLowerThreshold.onChange(function(v) {
 
     v = Math.round(v);
-    stack._bLowerThreshold = v / 255;
+    stack.bLowerThreshold = v / 255;
     
   });
   bUpperThreshold.onChange(function(v) {
 
     v = Math.round(v);
-    stack._bUpperThreshold = v / 255;
+    stack.bUpperThreshold = v / 255;
     
   });
   
